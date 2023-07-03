@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/cityFragment"
+        android:name="ru.itis.kpfu.games.satti.CityFragment"
+        android:label="CityFragment"
+        tools:layout="@layout/fragment_city">
+        <action
+            android:id="@+id/action_cityFragment_to_cityResultFragment"
+            app:destination="@id/cityResultFragment" />
+        <action
+            android:id="@+id/action_cityFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rowsResultFragment"
+        android:name="ru.itis.kpfu.games.cherry.RowsResultFragment"
+        android:label="RowsResultFragment"
+        tools:layout="@layout/fragment_rows_result">
+        <action
+            android:id="@+id/action_rowsResultFragment_to_rowsFragment"
+            app:destination="@id/rowsFragment" />
+        <action
+            android:id="@+id/action_rowsResultFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cityResultFragment"
+        android:name="ru.itis.kpfu.games.satti.CityResultFragment"
+        android:label="CityResultFragment"
+        tools:layout="@layout/fragment_city_result">
+        <action
+            android:id="@+id/action_cityResultFragment_to_cityFragment"
+            app:destination="@id/cityFragment" />
+        <action
+            android:id="@+id/action_cityResultFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/crossFragment"
+        android:name="ru.itis.kpfu.games.sobaken.CrossFragment"
+        android:label="CrossFragment"
+        tools:layout="@layout/fragment_cross">
+        <action
+            android:id="@+id/action_crossFragment_to_crossResultFragment"
+            app:destination="@id/crossResultFragment" />
+        <action
+            android:id="@+id/action_crossFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/crossResultFragment"
+        android:name="ru.itis.kpfu.games.sobaken.CrossResultFragment"
+        android:label="CrossResultFragment"
+        tools:layout="@layout/fragment_cross_result">
+        <action
+            android:id="@+id/action_crossResultFragment_to_crossFragment"
+            app:destination="@id/crossFragment" />
+        <action
+            android:id="@+id/action_crossResultFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rowsFragment"
+        android:name="ru.itis.kpfu.games.cherry.RowsFragment"
+        android:label="RowsFragment"
+        tools:layout="@layout/fragment_rows">
+        <action
+            android:id="@+id/action_rowsFragment_to_rowsResultFragment"
+            app:destination="@id/rowsResultFragment" />
+        <action
+            android:id="@+id/action_rowsFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sequenceFragment"
+        android:name="ru.itis.kpfu.games.dima.SequenceFragment"
+        android:label="SequenceFragment"
+        tools:layout="@layout/fragment_sequence">
+        <action
+            android:id="@+id/action_sequenceFragment_to_sequenceResultFragment"
+            app:destination="@id/sequenceResultFragment" />
+        <action
+            android:id="@+id/action_sequenceFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sequenceResultFragment"
+        android:name="ru.itis.kpfu.games.dima.SequenceResultFragment"
+        android:label="SequenceResultFragment"
+        tools:layout="@layout/fragment_sequence_result">
+        <action
+            android:id="@+id/action_sequenceResultFragment_to_sequenceFragment"
+            app:destination="@id/sequenceFragment" />
+        <action
+            android:id="@+id/action_sequenceResultFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="ru.itis.kpfu.games.StartFragment"
+        android:label="StartFragment"
+        tools:layout="@layout/fragment_start">
+        <action
+            android:id="@+id/action_startFragment_to_sessionFragment"
+            app:destination="@id/sessionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sessionFragment"
+        android:name="ru.itis.kpfu.games.SessionFragment"
+        android:label="SessionFragment"
+        tools:layout="@layout/fragment_session">
+        <action
+            android:id="@+id/action_sessionFragment_to_sequenceFragment"
+            app:destination="@id/sequenceFragment" />
+        <action
+            android:id="@+id/action_sessionFragment_to_crossFragment"
+            app:destination="@id/crossFragment" />
+        <action
+            android:id="@+id/action_sessionFragment_to_cityFragment"
+            app:destination="@id/cityFragment" />
+        <action
+            android:id="@+id/action_sessionFragment_to_rowsFragment"
+            app:destination="@id/rowsFragment" />
+        <action
+            android:id="@+id/action_sessionFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+</navigation>

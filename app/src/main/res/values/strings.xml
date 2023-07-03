@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Games</string>
+
+    <string name="player_first">First player</string>
+    <string name="player_second">Second player</string>
+    <string name="game_choice">Choose game</string>
+    <string name="game_cross">Cross</string>
+    <string name="game_city">City</string>
+    <string name="game_rows">Rows</string>
+    <string name="game_sequence">Sequence</string>
+
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+
+    <string name="error_empty">*Field is empty</string>
+
+</resources>
