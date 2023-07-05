@@ -1,6 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/tv_game_winner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/game_winner"
+        android:textSize="24sp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_game_winner_res"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.20" />
+
+    <TextView
+        android:id="@+id/tv_game_winner_res"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/game_winner"
+        android:textSize="24sp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_game_winner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_game_winner"
+        app:layout_constraintTop_toTopOf="@id/tv_game_winner" />
+
+    <TextView
+        android:id="@+id/tv_score"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/score"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_game_winner"
+        app:layout_constraintStart_toStartOf="@id/tv_game_winner"
+        app:layout_constraintTop_toBottomOf="@id/tv_game_winner" />
+
+
+    <TextView
+        android:id="@+id/tv_score_res"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/score"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_score"
+        app:layout_constraintEnd_toEndOf="@id/tv_game_winner_res"
+        app:layout_constraintStart_toStartOf="@+id/tv_game_winner_res"
+        app:layout_constraintTop_toTopOf="@id/tv_score" />
+
+    <TextView
+        android:id="@+id/tv_difficult"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/difficult_arguments"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_game_winner"
+        app:layout_constraintStart_toStartOf="@id/tv_game_winner"
+        app:layout_constraintTop_toBottomOf="@id/tv_score" />
+
+
+    <TextView
+        android:id="@+id/tv_difficult_res_number_range"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/range"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_difficult"
+        app:layout_constraintEnd_toEndOf="@id/tv_game_winner_res"
+        app:layout_constraintStart_toStartOf="@+id/tv_game_winner_res"
+        app:layout_constraintTop_toTopOf="@id/tv_difficult" />
+
+    <TextView
+        android:id="@+id/tv_difficult_res_time_range"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/time"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_game_winner_res"
+        app:layout_constraintStart_toStartOf="@+id/tv_game_winner_res"
+        app:layout_constraintTop_toBottomOf="@id/tv_difficult_res_number_range" />
+
+    <TextView
+        android:id="@+id/tv_difficult_res_level"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/level"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_game_winner_res"
+        app:layout_constraintStart_toStartOf="@+id/tv_game_winner_res"
+        app:layout_constraintTop_toBottomOf="@id/tv_difficult_res_time_range" />
+
+    <Button
+        android:id="@+id/bt_play_again"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/play_again"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_difficult_res_level"
+        app:layout_constraintVertical_bias="0.75" />
+
+    <Button
+        android:id="@+id/bt_back"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp"
+        android:text="@string/back"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@id/bt_play_again"
+        app:layout_constraintStart_toStartOf="@id/bt_play_again"
+        app:layout_constraintTop_toBottomOf="@id/bt_play_again" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,5 +13,19 @@
     <string name="back">Back</string>
 
     <string name="error_empty">*Field is empty</string>
+    <string name="current_player">Current player</string>
+    <string name="score">Score</string>
+    <string name="quit">Quit</string>
+    <string name="finish">Finish</string>
+    <string name="surrender">Surrender</string>
+    <string name="start">Start</string>
+    <string name="get_ready">Get ready!</string>
+    <string name="pass_move">Pass move</string>
+    <string name="game_winner">Game winner</string>
+    <string name="difficult_arguments">Difficult arguments</string>
+    <string name="range">Range</string>
+    <string name="time">Time</string>
+    <string name="level">Level</string>
+    <string name="play_again">Play again</string>
 
 </resources>
