@@ -27,11 +27,11 @@ class SequenceFragment : Fragment(R.layout.fragment_sequence) {
     private var matchCount = 1
     private var difficultLevel = 1
     private var rightOrder: MutableList<Int> = mutableListOf()
-    private lateinit var firstPlayer: String
-    private lateinit var secondPlayer: String
+    private var firstPlayer: String? = null
+    private var secondPlayer: String? = null
     private var firstPlayerScore = 0
     private var secondPlayerScore = 0
-    private lateinit var currentPlayer: String
+    private var currentPlayer: String? = null
     private var isFirstPlayerWin = false
     private var isSecondPlayerWin = false
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -90,8 +90,8 @@ class SequenceFragment : Fragment(R.layout.fragment_sequence) {
 
     private fun setNextRound() {
         if (isFirstPlayerWin && isSecondPlayerWin) {
-            recalculateConst()
             difficultLevel++
+            recalculateConst()
         }
         matchCount++
         passMove()
@@ -133,14 +133,14 @@ class SequenceFragment : Fragment(R.layout.fragment_sequence) {
     }
 
     private fun recalculateConst() {
-        time -= 100 * difficultLevel
+        time -= (50 + 10 * difficultLevel)
         from += difficultLevel
-        until *= difficultLevel
+        until += 5 * difficultLevel
     }
 
     private fun initFragment() {
-        firstPlayer = preferences?.getString(Constants.PLAYER_FIRST, "")!!
-        secondPlayer = preferences?.getString(Constants.PLAYER_SECOND, "")!!
+        firstPlayer = preferences?.getString(Constants.PLAYER_FIRST, "")
+        secondPlayer = preferences?.getString(Constants.PLAYER_SECOND, "")
         currentPlayer = firstPlayer
         binding?.run {
             tvFirstPlayerRes.text = firstPlayer
@@ -192,6 +192,7 @@ class SequenceFragment : Fragment(R.layout.fragment_sequence) {
             tv?.text = cell.number.toString()
             if (rightOrder[0] != cell.number) {
                 cl?.setBackgroundColor(resources.getColor(R.color.sequence_mistake))
+                binding?.btPassMove?.text = resources.getString(R.string.pass_move)
                 setFieldEnable(false)
             } else {
                 if (rightOrder.size - 1 == 0) {
@@ -232,7 +233,7 @@ class SequenceFragment : Fragment(R.layout.fragment_sequence) {
         const val ARG_SCORE = "ARG_SCORE"
     }
 
-    private fun createBundle(gameWinner: String, score: Int): Bundle {
+    private fun createBundle(gameWinner: String?, score: Int): Bundle {
         val bundle = Bundle()
         bundle.putString(ARG_GAME_WINNER, gameWinner)
         bundle.putString(ARG_SCORE, score.toString())
