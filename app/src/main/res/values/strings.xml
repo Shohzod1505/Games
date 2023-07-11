@@ -14,4 +14,18 @@
 
     <string name="error_empty">*Field is empty</string>
 
+    <string name="menu_rows">Main menu</string>
+    <string name="return_back_rows">Restart game</string>
+
+    <string name="result_rows">Result</string>
+    <string name="winner_rows">is a winner!</string>
+    <string name="draw_rows"> draw</string>
+    <string name="сhips_sum_rows"> chips are used</string>
+
+    <string name="turn_rows">y</string>
+    <string name="end_game_rows">Results</string>
+    <string name="full_rows">Table is full</string>
+    <string name="end_game_rows_defeat">Give up</string>
+    <string name="circle"> </string>
+    <string name="turn_name_rows">\'s turn</string>
 </resources>

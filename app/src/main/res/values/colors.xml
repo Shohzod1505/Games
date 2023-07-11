@@ -4,4 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="hint">#FF999999</color>
     <color name="primary">#6750A4</color>
+
+    <color name="player1_rows">#FFC107</color>
+    <color name="player2_rows">#6750A4</color>
 </resources>
