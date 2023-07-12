@@ -1,6 +1,10 @@
+package ru.itis.kpfu.games.satti
+
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
 import ru.itis.kpfu.games.R
 import ru.itis.kpfu.games.databinding.FragmentCityResultBinding
@@ -15,13 +19,19 @@ class CityResultFragment : Fragment(R.layout.fragment_city_result) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCityResultBinding.bind(view)
 
-        binding?.run {
-            val args = CityResultFragmentArgs.fromBundle(requireArguments())
-            player1Score = args.player1Score
-            player2Score = args.player2Score
+        player1Score = arguments?.getInt("player1Score") ?: 0
+        player2Score = arguments?.getInt("player2Score") ?: 0
 
-            val winner = if (player1Score > player2Score) "Player 1 wins!" else "Player 2 wins!"
-            val cityCount = "Cities named: ${player1Score + player2Score}"
+        binding?.run {
+            var winner = ""
+            var cityCount = ""
+            if (player1Score > player2Score) {
+                winner = "Player 1 wins!"
+                cityCount = "Cities named: ${player1Score}"
+            } else {
+                winner = "Player 2 wins!"
+                cityCount = "Cities named: ${player2Score}"
+            }
 
             textViewWinner.text = winner
             textViewCityCount.text = cityCount
@@ -42,22 +52,16 @@ class CityResultFragment : Fragment(R.layout.fragment_city_result) {
     }
 
     private fun navigateToMenuScreen() {
-        val action = CityResultFragmentDirections.actionCityResultFragmentToStartFragment()
-        findNavController().navigate(action.actionId)
-
+        findNavController().navigate(R.id.action_cityResultFragment_to_startFragment)
     }
 
 
     private fun restartGame() {
         player1Score = 0
         player2Score = 0
-        citiesList.clear()
 
-        citiesAdapter.setData(emptyList())
+        setFragmentResult("restart", bundleOf())
 
-        currentPlayer = 1
-        binding?.textViewScorePlayer1?.text = "Score: $player1Score"
-        binding?.textViewScorePlayer2?.text = "Score: $player2Score"
-
+        findNavController().popBackStack()
     }
 }

@@ -59,7 +59,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCities"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:layout_below="@id/textViewLetter"
         android:layout_marginTop="110dp"
         android:padding="10dp" />
@@ -78,7 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Введите город"
-            android:inputType="text"
+            android:inputType="textPersonName"
             android:textColorHint="#8E8B8B" />
 
     </com.google.android.material.textfield.TextInputLayout>

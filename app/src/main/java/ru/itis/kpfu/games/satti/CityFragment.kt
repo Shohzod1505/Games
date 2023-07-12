@@ -1,11 +1,13 @@
+package ru.itis.kpfu.games.satti
+
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.itis.kpfu.games.R
 import ru.itis.kpfu.games.databinding.FragmentCityBinding
-import ru.itis.kpfu.games.satti.CitiesAdapter
 
 class CityFragment : Fragment(R.layout.fragment_city) {
 
@@ -22,6 +24,14 @@ class CityFragment : Fragment(R.layout.fragment_city) {
         val lastChar = previousCity.last().lowercaseChar()
         val firstChar = currentCity.first().lowercaseChar()
         return lastChar != firstChar
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setFragmentResultListener("restart") { requestKey, bundle ->
+            binding?.textViewLetter?.text = ""
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,7 +55,7 @@ class CityFragment : Fragment(R.layout.fragment_city) {
             }
         }
 
-        val citiesList = listOf("Moscow", "New York", "London", "Tokyo", "Paris")
+        var citiesList: List<String> = emptyList()
         citiesAdapter.setData(citiesList)
     }
 
@@ -59,7 +69,7 @@ class CityFragment : Fragment(R.layout.fragment_city) {
 
         val lastCity = citiesList.lastOrNull()
 
-        if (lastCity != null && !checkCityName(lastCity, city)) {
+        if (lastCity != null && checkCityName(lastCity, city)) {
             binding?.textInputLayoutCity?.error = "Название города должно начинаться с другой буквы"
             return
         }
@@ -73,6 +83,8 @@ class CityFragment : Fragment(R.layout.fragment_city) {
         citiesList.add(city)
         citiesAdapter.setData(citiesList)
         binding?.editTextCity?.text?.clear()
+
+        binding?.textViewLetter?.text = city.last().toString().uppercase()
 
         currentPlayer = if (currentPlayer == 1) 2 else 1
 
@@ -89,13 +101,15 @@ class CityFragment : Fragment(R.layout.fragment_city) {
 
 
     private fun navigateToMenuScreen() {
-        val action = CityFragmentDirections.actionCityFragmentToStartFragment()
-        findNavController().navigate(action)
+        findNavController().navigate(R.id.action_cityFragment_to_startFragment)
     }
 
     private fun navigateToResultScreen() {
-        val action = CityFragmentDirections.actionCityFragmentToCityResultFragment(player1Score, player2Score)
-        findNavController().navigate(action)
+        val bundle = Bundle()
+        bundle.putInt("player1Score", player1Score)
+        bundle.putInt("player2Score", player2Score)
+
+        findNavController().navigate(R.id.action_cityFragment_to_cityResultFragment, bundle)
     }
 
     override fun onDestroyView() {
